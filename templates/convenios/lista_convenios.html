@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section id="content">
+    <main>
+        <div class="head-title">
+            <h2>Convenios</h2>
+        </div>
+        {% if convenios %}
+        <div class="project-list">
+            {% for convenio in convenios %}
+            <div class="project-card">
+                <h3>{{ convenio.titulo }}</h3>
+                <p class="author">Empresa: {{ convenio.empresa.nombre }}
+                <h5 class="author">> {{ convenio.fecha_inicio }} - {{ convenio.fecha_fin }}</h5>
+
+                </p>
+            
+                <p class="description">
+                    {{ convenio.descripcion }}
+                    
+                </p>
+
+                <br>
+                
+                <p class="description">
+                    <a href=""></a>{{ convenio.documento_pdf }}
+                </p>
+
+                <a href="{% url 'editar_convenio' convenio.id %}" class="btn-edit">
+                    <i class='bx bx-edit-alt'></i>
+                </a>
+                <a href="{% url 'eliminar_convenio' convenio.id %}" class="btn-delete">
+                    <i class='bx bx-trash'></i>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h4>No hay convenios registrados.</h4>
+        {% endif %}
+
+        <div class="add-project">
+            <a href="{% url 'crear_convenio' %}" class="btn-add">+ Agregar Convenio</a>
+        </div>
+    </main>
+</section>
+
+{% endblock %}

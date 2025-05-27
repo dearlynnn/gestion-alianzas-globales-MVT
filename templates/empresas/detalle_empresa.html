@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section id="content">
+    <main>
+        <div class="form-container">
+            <div class="project-card">
+                <h2 class="title">Empresa: {{ empresa.nombre }}</h2>
+                <p class="author">> NIT: {{ empresa.nit }}</p>
+                <p class="description">Contacto: {{ empresa.correo_contacto }}</p>
+
+                <h4 class="description">Proyectos asociados:</h4>
+                <ul>
+                    {% for proyecto in proyectos %}
+                    <p>
+                        <li class="description">
+                            <p class="description">- {{ proyecto.titulo }}</p>
+                        </li>
+                    </p>
+                    {% empty %}
+                    <li class="description">No hay proyectos asociados a esta empresa.</li>
+                    {% endfor %}
+                </ul>
+
+                <a href="{% url 'lista_empresas' %}" class="btn-return">
+                    <i class='bx bx-arrow-back'></i>
+                </a>
+            </div>
+        </div>
+    </main>
+</section>
+{% endblock %}

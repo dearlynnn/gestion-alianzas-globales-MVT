@@ -1,0 +1,40 @@
+{% extends '../main/base.html' %}
+{% load static %}
+{% block title %} Lista de proyectos {% endblock %}
+{% block content %}
+
+<section id="content">
+  <main>
+    <div class="head-title">
+      <h2>Proyectos Registrados</h2>
+    </div>
+
+    {% if proyectos %}
+    <div class="project-list">
+      {% for proyecto in proyectos %}
+      <div class="project-card">
+        <h3>{{ proyecto.titulo }}</h3>
+        <p class="author">Investigador: {{ proyecto.investigador.username }}</p>
+        <p class="description">{{ proyecto.descripcion }}</p>
+        <p class="description">Empresa: {{ proyecto.empresa }}</p>
+
+        <a href="{% url 'editar_proyecto' proyecto.id %}" class="btn-edit">
+          <i class='bx bx-edit-alt'></i>
+        </a>
+        <a href="{% url 'eliminar_proyecto' proyecto.id %}" class="btn-delete">
+          <i class='bx bx-trash'></i>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No hay proyectos disponibles.</p>
+    {% endif %}
+
+    <div class="add-project">
+      <a href="{% url 'registrar_proyecto' %}" class="btn-add">+ Agregar Proyecto</a>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

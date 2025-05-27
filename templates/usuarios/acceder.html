@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Inicio de sesión{% endblock %}
+{% block content %}
+
+<section id="content">
+    <main>
+        <div class="login-container">
+            <h2 class="login-title">Iniciar Sesión</h2>
+
+            {% if messages %}
+                <ul class="message-list">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="POST" class="login-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p class="register-link">
+                    ¿No tienes cuenta? <a href="{% url 'registro' %}">Crea una aquí</a>
+                </p>
+                <button type="submit" class="btn-login">Acceder</button>
+            </form>
+        </div>
+    </main>
+</section>
+
+{% endblock %}
+ 

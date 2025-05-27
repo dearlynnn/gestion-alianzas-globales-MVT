@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section id="content">
+  <main>
+    <div class="form-container">
+      <h2 class="login-title">Registrar nueva empresa</h2>
+      <form class="form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn-login">Guardar</button>
+      </form>
+    </div>
+  </main>
+</section>
+{% endblock %}

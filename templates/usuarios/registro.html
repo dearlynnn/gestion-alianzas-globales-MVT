@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Registro de Usuario{% endblock %}
+{% block content %}
+
+<section id="content">
+    <main>
+        <div class="register-container">
+            <h2 class="register-title">Crear cuenta</h2>
+
+            {% if messages %}
+                <ul class="message-list">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form class="register-form" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-register">Registrarse</button>
+                <p class="login-link">¿Ya tienes una cuenta? <a href="{% url 'acceder' %}">Inicia sesión</a></p>
+            </form>
+        </div>
+    </main>
+</section>
+
+{% endblock %}
+ 

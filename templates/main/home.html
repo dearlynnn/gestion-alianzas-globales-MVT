@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Home page {% endblock %}
+{% block content %}
+
+<section id="content">
+    <section id="content">
+        <main>
+            {% if request.user.is_authenticated %}
+
+            <div class="head-title">
+                <div class="left">
+                    <strong><h1> ¡Sé de los nuestros!</h1></strong>
+                    
+                    <p>Añade tu proyecto y sé parte de la mejor experiencia institucional.</p>
+                </div>
+            </div>
+            <br>
+            <img src="https://files.cercomp.ufg.br/weby/up/1/o/2c82296b2a9773e5fa12a6d4948b1cf4_486x406.png?1544112077" alt="Imagen dashboard" class="img-welcome">
+
+            {% else %}
+            <div class="head-title">
+                <div class="left">
+                    <p>¡Te damos la bienvenida a la Plataforma Web de Visibilidad Nacional e Internacional Uninúñez!</p>
+                </div>
+            </div>
+            <img src="https://qualiteexcellencemanageriale.org/wp-content/uploads/2022/05/revue-obj_ssfond-1024x709.png"
+                alt="Imagen bienvenida" class="img-welcome">
+            {% endif %}
+        </main>
+    </section>
+
+    {% endblock %}

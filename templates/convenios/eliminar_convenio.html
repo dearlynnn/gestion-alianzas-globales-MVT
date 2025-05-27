@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="content">
+    <main>
+        <div class="login-container">
+            <h2>¿Estás seguro de eliminar el convenio "{{ convenio.titulo }}"?</h2>
+
+            <form class="login-form" method="POST">
+                {% csrf_token %}
+                <button class="btn-delete">Sí, eliminar</button>
+                <a href="{% url 'lista_convenios' %}" class="btn-cancel">Cancelar</a>
+            </form>
+        </div>
+    </main>
+</section>
+{% endblock %}

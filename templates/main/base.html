@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Plataforma RNI{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <section id="sidebar">
+        <a href="/home" class="brand">
+            <i class='bx bx-meteor' ></i>
+            <span class="text">RNI-CURN</span>
+        </a>
+        
+        <ul class="side-menu top">
+            {% if user.is_authenticated %}
+            <li class="active">
+                <a href="/home">
+                    <i class='bx bxs-certification'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'lista_proyectos' %}" class="nav-link">
+                    <i class='bx bxs-coin-stack' ></i>
+                    <span class="text">Proyectos</span>
+                </a>
+            </li>            
+            <li>
+                <a href="{% url 'registrar_proyecto' %}" class="nav-link">
+                    <i class='bx bx-message-alt-add'></i>
+                    <span class="text">Añadir Proyecto</span>
+                </a>
+            </li>  
+            <li>
+                <a href="{% url 'lista_convenios' %}" class="nav-link">
+                    <i class='bx bx-git-branch'></i>
+                    <span class="text">Convenios</span>
+                </a>
+            </li>  
+            <li>
+                <a href="{% url 'lista_empresas' %}" class="nav-link">
+                    <i class='bx  bx-building'  style='color:#000000'></i> 
+                    <span class="text">Empresas</span>
+                </a>
+            </li>  
+                               
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="">
+                    <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %} 
+                    <button class="btn" type="submit"><i class='bx  bx-door-open'></i> Salir</button>
+                    </form>   
+                </a>
+                                     
+            </li>
+        {% else %}
+            <li class="active">
+                <a href="/home">
+                    <i class='bx bxs-certification'></i>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a href="/acceder">
+                    <i class='bx  bx-user'></i> 
+                    <span class="text">Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="/registro">
+                    <i class='bx  bx-user-plus'></i> 
+                    <span class="text">Signup</span>
+                </a>
+            </li>
+        {% endif %}
+        </ul>
+
+    </section>
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+			{% if request.user.is_authenticated %}
+            <i class='bx  bx-user-circle'  style='color:#000000'></i> 
+			<a href="#" class="nav-link">Bienvenido(a), {{ request.user.username }}</a>
+            {% endif %}            
+        </nav>
+    </section>
+
+    <script src="/static/scripts.js"></script>
+
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

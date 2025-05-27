@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="content">
+    <main>
+        <div class="form-container">
+            <h2 class="login-title">Editar convenio</h2>
+            <form class="form" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-update">Actualizar</button>
+                <a href="{% url 'lista_convenios' %}" class="btn-cancel">Cancelar</a>
+            </form>
+        </div>
+    </main>
+</section>
+{% endblock %}
