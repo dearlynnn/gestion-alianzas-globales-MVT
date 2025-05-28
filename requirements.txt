@@ -26,6 +26,7 @@ darkdetect==0.8.0
 debugpy==1.8.5
 decorator==5.1.1
 distro==1.9.0
+dj-database-url==2.3.0
 Django==5.0
 django-extensions==4.1
 djangorestframework==3.16.0
@@ -122,6 +123,7 @@ prompt_toolkit==3.0.47
 proto-plus==1.24.0
 protobuf==4.25.3
 psutil==6.0.0
+psycopg2-binary==2.9.10
 pure_eval==0.2.3
 pyarrow==17.0.0
 pyasn1==0.6.1

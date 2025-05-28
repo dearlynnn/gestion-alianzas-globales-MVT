@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from django.conf import settings
 from django.conf.urls.static import static
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,13 +83,17 @@ WSGI_APPLICATION = 'gestion_investigacion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.getenv("RAILWAY") == "true":
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("postgresql://postgres:tDqDSoxucyvgDXfsDQqaStqrWYuCssIq@postgres.railway.internal:5432/railway"))
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
