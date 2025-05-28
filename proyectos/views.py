@@ -14,7 +14,7 @@ def registrar_proyecto(request):
             proyecto = form.save(commit=False)
             proyecto.investigador = request.user
             proyecto.save()
-            return redirect('lista_proyecto')
+            return redirect('lista_proyectos')
     else:
         form = ProyectoForm()
     return render(request, 'proyectos/registrar.html', {'form': form})
