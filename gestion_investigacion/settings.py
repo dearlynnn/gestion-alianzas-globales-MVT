@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'usuarios',
     'proyectos',
-    'convenios'
+    'convenios',
+    'staticfiles'
 ]
 
 MIDDLEWARE = [
