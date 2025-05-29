@@ -111,6 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://gestion-alianzas-globales-mvt-production.up.railway.app'
+]
 
 
 # Internationalization
