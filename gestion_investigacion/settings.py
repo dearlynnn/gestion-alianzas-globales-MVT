@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'usuarios',
     'proyectos',
     'convenios',
-    'staticfiles'
 ]
 
 MIDDLEWARE = [
