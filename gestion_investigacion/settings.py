@@ -30,8 +30,7 @@ SECRET_KEY = 'django-insecure-mp^=vu_&fbre@*9go1^3t4jj*za6$yc7(r_sy&ph@x3%+6s^8$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['gestion-alianzas-globales-mvt-production.up.railway.app', 'localhost', '127.0.0.1']
 
 # Application definition
 AUTH_USER_MODEL = 'usuarios.Usuario'
