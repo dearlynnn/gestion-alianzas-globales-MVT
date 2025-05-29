@@ -15,7 +15,6 @@ import os
 from django.conf import settings
 from django.conf.urls.static import static
 import dj_database_url
-import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -150,5 +149,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/acceder'
-
-django_heroku.settings(locals())
